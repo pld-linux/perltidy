@@ -1,4 +1,4 @@
-# $Revision: 1.4 $
+# $Revision: 1.4.2.1 $
 %include	/usr/lib/rpm/macros.perl
 Summary:	Perltidy is a tool to indent and reformat perl scripts
 Summary(pl):	Perltidy jest narzêdziem do reformatowania skryptów perla
