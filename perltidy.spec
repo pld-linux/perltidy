@@ -1,4 +1,4 @@
-# $Revision: 1.9 $
+# $Revision: 1.10 $
 #
 # Conditional build:
 # _without_tests - do not perform "make test"
@@ -12,6 +12,7 @@ Release:	2
 License:	GPL
 Group:		Development/Tools
 Source0:	http://dl.sourceforge.net/%{name}/Perl-Tidy-%{version}.tar.gz
+# Source0-md5:	eed5305de796eaef210365851c73d28f
 URL:		http://perltidy.sourceforge.net/
 BuildRequires:	perl-devel
 BuildRequires:	rpm-perlprov >= 4.1-13
