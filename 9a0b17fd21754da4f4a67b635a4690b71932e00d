@@ -1,0 +1,4 @@
+- adapterized,
+- removed COPYING INSTALL from %%doc,
+- removed %doc from man paged (man pages are marked as %%doc automatically),
+- cosmetics.
