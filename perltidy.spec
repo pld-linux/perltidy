@@ -1,4 +1,4 @@
-# $Revision: 1.5 $
+# $Revision: 1.6 $
 #
 # Conditional build:
 # _without_tests - do not perform "make test"
@@ -28,7 +28,7 @@ zreformatowanej, z wciêciami.
 %setup -q -n Perl-Tidy-%{version}
 
 %build
-perl Makefile.PL
+%{__perl} Makefile.PL
 %{__make}
 
 %{!?_without_tests:%{__make} test}
