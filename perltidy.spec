@@ -1,30 +1,29 @@
-# $Revision: 1.11 $
 #
 # Conditional build:
-# _without_tests - do not perform "make test"
+%bcond_without	tests	# do not perform "make test"
 #
 %include	/usr/lib/rpm/macros.perl
-Summary:	Perltidy is a tool to indent and reformat perl scripts
-Summary(pl):	Perltidy jest narzêdziem do reformatowania skryptów perla
+Summary:	Perltidy - a tool to indent and reformat Perl scripts
+Summary(pl):	Perltidy - narzêdzie do reformatowania skryptów Perla
 Name:		perltidy
-Version:	20030726
+Version:	20031021
 Release:	1
 License:	GPL
 Group:		Development/Tools
 Source0:	http://dl.sourceforge.net/%{name}/Perl-Tidy-%{version}.tar.gz
-# Source0-md5:	158597913c9eb0325cbdb8268e29a859
+# Source0-md5:	ba1e8aff6329666564a3c72a202d1a7f
 URL:		http://perltidy.sourceforge.net/
-BuildRequires:	perl-devel
+BuildRequires:	perl-devel >= 5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Perltidy reads a perl script and writes an indented, reformatted
+Perltidy reads a Perl script and writes an indented, reformatted
 script.
 
 %description -l pl
-Perltidy odczytuje skrypt perla i zapisuje go w postaci
+Perltidy odczytuje skrypt Perla i zapisuje go w postaci
 zreformatowanej, z wciêciami.
 
 %prep
@@ -35,13 +34,14 @@ zreformatowanej, z wciêciami.
 	INSTALLDIRS=vendor
 %{__make}
 
-%{!?_without_tests:%{__make} test}
+%{?with_tests:%{__make} test}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 gzip -9nf examples/README
 install examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
