@@ -1,4 +1,4 @@
-# $Revision: 1.10 $
+# $Revision: 1.11 $
 #
 # Conditional build:
 # _without_tests - do not perform "make test"
@@ -7,12 +7,12 @@
 Summary:	Perltidy is a tool to indent and reformat perl scripts
 Summary(pl):	Perltidy jest narzêdziem do reformatowania skryptów perla
 Name:		perltidy
-Version:	20021130
-Release:	2
+Version:	20030726
+Release:	1
 License:	GPL
 Group:		Development/Tools
 Source0:	http://dl.sourceforge.net/%{name}/Perl-Tidy-%{version}.tar.gz
-# Source0-md5:	eed5305de796eaef210365851c73d28f
+# Source0-md5:	158597913c9eb0325cbdb8268e29a859
 URL:		http://perltidy.sourceforge.net/
 BuildRequires:	perl-devel
 BuildRequires:	rpm-perlprov >= 4.1-13
@@ -57,4 +57,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man[13]/*
 %dir %{_examplesdir}/%{name}-%{version}
 %{_examplesdir}/%{name}-%{version}/[Rlt]*
-%attr(755,root,root) %{_examplesdir}/%{name}-%{version}/e*
+%attr(755,root,root) %{_examplesdir}/%{name}-%{version}/*.pl
