@@ -1,13 +1,17 @@
-# $Revision: 1.4 $
+# $Revision: 1.5 $
+#
+# Conditional build:
+# _without_tests - do not perform "make test"
+#
 %include	/usr/lib/rpm/macros.perl
 Summary:	Perltidy is a tool to indent and reformat perl scripts
 Summary(pl):	Perltidy jest narzêdziem do reformatowania skryptów perla
 Name:		perltidy
-Version:	20020225
-Release:	3
+Version:	20021130
+Release:	1
 License:	GPL
 Group:		Development/Tools
-Source0:	http://prdownloads.sourceforge.net/%{name}/Perl-Tidy-%{version}.tgz
+Source0:	http://prdownloads.sourceforge.net/%{name}/Perl-Tidy-%{version}.tar.gz
 URL:		http://perltidy.sourceforge.net/
 BuildRequires:	rpm-perlprov
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -26,7 +30,8 @@ zreformatowanej, z wciêciami.
 %build
 perl Makefile.PL
 %{__make}
-%{__make} test
+
+%{!?_without_tests:%{__make} test}
 
 %install
 rm -rf $RPM_BUILD_ROOT
