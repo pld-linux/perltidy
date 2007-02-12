@@ -4,7 +4,7 @@
 #
 %include	/usr/lib/rpm/macros.perl
 Summary:	Perltidy - a tool to indent and reformat Perl scripts
-Summary(pl):	Perltidy - narzêdzie do reformatowania skryptów Perla
+Summary(pl.UTF-8):   Perltidy - narzÄ™dzie do reformatowania skryptÃ³w Perla
 Name:		perltidy
 Version:	20031021
 Release:	1
@@ -22,9 +22,9 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Perltidy reads a Perl script and writes an indented, reformatted
 script.
 
-%description -l pl
+%description -l pl.UTF-8
 Perltidy odczytuje skrypt Perla i zapisuje go w postaci
-zreformatowanej, z wciêciami.
+zreformatowanej, z wciÄ™ciami.
 
 %prep
 %setup -q -n Perl-Tidy-%{version}
