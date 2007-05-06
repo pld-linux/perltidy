@@ -6,12 +6,12 @@
 Summary:	Perltidy - a tool to indent and reformat Perl scripts
 Summary(pl.UTF-8):	Perltidy - narzędzie do reformatowania skryptów Perla
 Name:		perltidy
-Version:	20031021
+Version:	20070504
 Release:	1
 License:	GPL
 Group:		Development/Tools
 Source0:	http://dl.sourceforge.net/%{name}/Perl-Tidy-%{version}.tar.gz
-# Source0-md5:	ba1e8aff6329666564a3c72a202d1a7f
+# Source0-md5:	d9d2e7659fe6f9e4e5d6d329eb3393dd
 URL:		http://perltidy.sourceforge.net/
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
