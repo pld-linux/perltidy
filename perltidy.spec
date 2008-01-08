@@ -6,7 +6,7 @@
 Summary:	Perltidy - a tool to indent and reformat Perl scripts
 Summary(pl.UTF-8):	Perltidy - narzędzie do reformatowania skryptów Perla
 Name:		perltidy
-Version:	20070504
+Version:	20071205
 Release:	1
 License:	GPL
 Group:		Development/Tools
