@@ -10,8 +10,8 @@ Version:	20071205
 Release:	1
 License:	GPL
 Group:		Development/Tools
-Source0:	http://dl.sourceforge.net/%{name}/Perl-Tidy-%{version}.tar.gz
-# Source0-md5:	d9d2e7659fe6f9e4e5d6d329eb3393dd
+Source0:	http://dl.sourceforge.net/perltidy/Perl-Tidy-%{version}.tar.gz
+# Source0-md5:	d45c12f967308cae59f795172ec8199f
 URL:		http://perltidy.sourceforge.net/
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
