@@ -2,16 +2,18 @@
 # Conditional build:
 %bcond_without	tests	# do not perform "make test"
 #
+%define		pdir	Perl
+%define		pnam	Tidy
 %include	/usr/lib/rpm/macros.perl
 Summary:	Perltidy - a tool to indent and reformat Perl scripts
 Summary(pl.UTF-8):	Perltidy - narzędzie do reformatowania skryptów Perla
 Name:		perltidy
-Version:	20090616
+Version:	20120714
 Release:	1
 License:	GPL
 Group:		Development/Tools
-Source0:	http://dl.sourceforge.net/perltidy/Perl-Tidy-%{version}.tar.gz
-# Source0-md5:	63baa94a96fc5c272e06e72e589e7673
+Source0:	http://www.cpan.org/modules/by-module/Perl/%{pdir}-%{pnam}-%{version}.tar.gz
+# Source0-md5:	681010edccdde984133b33043874d9cf
 URL:		http://perltidy.sourceforge.net/
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
@@ -27,7 +29,7 @@ Perltidy odczytuje skrypt Perla i zapisuje go w postaci
 zreformatowanej, z wcięciami.
 
 %prep
-%setup -q -n Perl-Tidy-%{version}
+%setup -q -n %{pdir}-%{pnam}-%{version}
 
 %build
 %{__perl} Makefile.PL \
@@ -52,9 +54,12 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc BUGS CHANGES README TODO
-%{perl_vendorlib}/Perl
-%attr(755,root,root) %{_bindir}/*
-%{_mandir}/man[13]/*
+%attr(755,root,root) %{_bindir}/perltidy
+# XXX: shared with perl-Perl-OSType - move to perl-dirs
+%dir %{perl_vendorlib}/Perl
+%{perl_vendorlib}/Perl/Tidy.pm
+%{_mandir}/man1/perltidy.1p*
+%{_mandir}/man3/Perl::Tidy.3pm*
 %dir %{_examplesdir}/%{name}-%{version}
 %{_examplesdir}/%{name}-%{version}/[Rlt]*
 %attr(755,root,root) %{_examplesdir}/%{name}-%{version}/*.pl
