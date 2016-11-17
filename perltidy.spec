@@ -8,12 +8,12 @@
 Summary:	Perltidy - a tool to indent and reformat Perl scripts
 Summary(pl.UTF-8):	Perltidy - narzędzie do reformatowania skryptów Perla
 Name:		perltidy
-Version:	20120714
+Version:	20160302
 Release:	1
-License:	GPL
+License:	GPL v2+
 Group:		Development/Tools
 Source0:	http://www.cpan.org/modules/by-module/Perl/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	681010edccdde984133b33043874d9cf
+# Source0-md5:	997c888b2e413982a598233dc29778a7
 URL:		http://perltidy.sourceforge.net/
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
@@ -46,7 +46,9 @@ install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 	DESTDIR=$RPM_BUILD_ROOT
 
 gzip -9nf examples/README
-install examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
+cp -p examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
+%{__rm} $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}/pt.bat
+%{__rm} $RPM_BUILD_ROOT%{perl_vendorlib}/Perl/Tidy.pod
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -55,11 +57,12 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc BUGS CHANGES README TODO
 %attr(755,root,root) %{_bindir}/perltidy
-# XXX: shared with perl-Perl-OSType - move to perl-dirs
-%dir %{perl_vendorlib}/Perl
 %{perl_vendorlib}/Perl/Tidy.pm
 %{_mandir}/man1/perltidy.1p*
 %{_mandir}/man3/Perl::Tidy.3pm*
 %dir %{_examplesdir}/%{name}-%{version}
-%{_examplesdir}/%{name}-%{version}/[Rlt]*
+%{_examplesdir}/%{name}-%{version}/README.gz
+%{_examplesdir}/%{name}-%{version}/filter_example.in
+%{_examplesdir}/%{name}-%{version}/lextest
+%{_examplesdir}/%{name}-%{version}/test*.t
 %attr(755,root,root) %{_examplesdir}/%{name}-%{version}/*.pl
