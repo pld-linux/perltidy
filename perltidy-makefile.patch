@@ -1,0 +1,10 @@
+--- Perl-Tidy-20181119/Makefile.PL~	2018-03-31 16:23:13.000000000 +0200
++++ Perl-Tidy-20181119/Makefile.PL	2018-11-19 13:48:53.518265642 +0100
+@@ -12,6 +12,6 @@
+         : ()
+     ),
+ 
+-    #EXE_FILES => ['bin/perltidy'],
++    EXE_FILES => ['bin/perltidy'],
+     dist => { COMPRESS => 'gzip', SUFFIX => 'gz' },
+ );

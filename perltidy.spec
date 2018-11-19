@@ -8,12 +8,13 @@
 Summary:	Perltidy - a tool to indent and reformat Perl scripts
 Summary(pl.UTF-8):	Perltidy - narzędzie do reformatowania skryptów Perla
 Name:		perltidy
-Version:	20180220
+Version:	20181119
 Release:	1
 License:	GPL v2+
 Group:		Development/Tools
 Source0:	http://www.cpan.org/modules/by-module/Perl/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	1b2397646622f748b2c533dcac274587
+# Source0-md5:	6503132f8ef74ddf54cbe69e1d9f2f47
+Patch0:		%{name}-makefile.patch
 URL:		http://perltidy.sourceforge.net/
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
@@ -30,6 +31,7 @@ zreformatowanej, z wcięciami.
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
+%patch0 -p1
 
 %build
 %{__perl} Makefile.PL \
@@ -55,11 +57,13 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc BUGS CHANGES README TODO
+%doc BUGS.md CHANGES.md COPYING INSTALL.md README.md
 %attr(755,root,root) %{_bindir}/perltidy
 %{perl_vendorlib}/Perl/Tidy.pm
 %{_mandir}/man1/perltidy.1p*
 %{_mandir}/man3/Perl::Tidy.3pm*
+%{_mandir}/man3/Perl::Tidy::Formatter.3pm*
+%{perl_vendorlib}/Perl/Tidy
 %dir %{_examplesdir}/%{name}-%{version}
 %{_examplesdir}/%{name}-%{version}/README.gz
 %{_examplesdir}/%{name}-%{version}/filter_example.in
