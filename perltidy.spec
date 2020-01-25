@@ -4,7 +4,6 @@
 #
 %define		pdir	Perl
 %define		pnam	Tidy
-%include	/usr/lib/rpm/macros.perl
 Summary:	Perltidy - a tool to indent and reformat Perl scripts
 Summary(pl.UTF-8):	Perltidy - narzędzie do reformatowania skryptów Perla
 Name:		perltidy
